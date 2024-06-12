@@ -1,0 +1,49 @@
+{% extends 'StudentPage.html' %} {% block body %}
+<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	<table align="center">
+		<tr>
+			<td><label>Favorite Subject 1</label></td>
+			<td>
+				<select name="fav1" value=" " class="textbox" style="color: #ff1949">
+					<option>----Select Subject----</option>
+					{%for c in data %}
+					<option value="{{c.id}}">{{c.name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td><label>Favorite Subject 2</label></td>
+			<td>
+				<select name="fav2" value=" " class="textbox" style="color: #ff1949">
+					<option>----Select Subject----</option>
+					{%for c in data %}
+					<option value="{{c.id}}">{{c.name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td><label>Favorite Subject 3</label></td>
+			<td>
+				<select name="fav3" value=" " class="textbox" style="color: #ff1949">
+					<option>----Select Subject----</option>
+					{%for c in data %}
+					<option value="{{c.id}}">{{c.name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="Submit" name="Add" class="but" />
+			</td>
+		</tr>
+	</table>
+</form>
+{% if msg %}
+<script>
+	alert('{{msg}}');
+</script>
+{% endif %} {% endblock %}

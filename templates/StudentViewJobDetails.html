@@ -1,0 +1,69 @@
+{% extends 'StudentPage.html' %}
+{% block body %}
+<style>
+    .bb{
+        outline: none;
+    border: none;
+    background: #ff1949;
+    padding: 10px 36px;
+    font-size: 15px;
+    color: #fff;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: 0.5s all;
+    }
+    .bb:hover {
+    background: #212121;
+    letter-spacing: 2px;
+}
+</style>
+<form method="POST">
+    {% csrf_token %}
+<div class="single-w3l py-5">
+    <div class="container py-xl-5 py-lg-3">
+        <div class="title-section pb-4">
+            <h3 class="main-title-agile">Job in Detail</h3>
+            <div class="title-line">
+            </div>
+        </div>
+        <div class="row inner_sec_info pt-md-4">
+            <!-- left side -->
+            <div class="col-lg-8 single-left">
+                {% for d in data %}
+                <div class="single-left1">
+                    <img src="../{{d.8}}" alt=" " class="img-fluid" />
+                    <h6 class="courses-first text-dark my-4">
+                        <i class="far fa-user mr-2"></i><b>{{d.3}}</b>
+                    </h6>
+                    <ul class="courses_list my-3">
+                        <li><b>Salary</b> : {{d.6}} </li>
+                        <li><b>Experience</b> : {{d.7}} </li>
+                        <li><b>Description</b> : {{d.4}}</li>
+                        <li><b>Qualification</b> : {{d.5}}</li>
+                    </ul>
+                </div>
+                
+                
+               
+                    <input type="submit" class="bb" value="   Apply Now   ">
+               
+            
+                {% endfor %}
+               
+                
+                
+            </div>
+            <!-- //left side -->
+            <!-- right side -->
+            {% if msg %}
+            <script>
+                alert("{{msg}}")
+            </script>
+            {% endif %}
+            <!-- //right side -->
+        </div>
+    </div>
+</div>
+</form>
+
+{% endblock %}

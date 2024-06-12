@@ -1,0 +1,91 @@
+<link href="../static/Questions/style.css" rel="stylesheet" type="text/css" />
+<style>
+	.bb {
+		outline: none;
+		border: none;
+		background: #fff;
+		padding: 10px 36px;
+		font-size: 15px;
+		color: rgb(104, 133, 11);
+		cursor: pointer;
+		letter-spacing: 1px;
+		transition: 0.5s all;
+	}
+	.bb:hover {
+		background: #212121;
+		letter-spacing: 2px;
+	}
+	li {
+		margin-bottom: 10px;
+	}
+</style>
+
+<div class="continput">
+	<form method="POST">
+		{% csrf_token %}
+
+		<p style="font-size: 18px"><b>{{d.question}}</b></p>
+		<ul>
+			<li>
+				<input checked type="radio" name="1" value="{{d.o1}}" />
+				<label>{{d.o1}}</label>
+				<div class="bullet">
+					<div class="line zero"></div>
+					<div class="line one"></div>
+					<div class="line two"></div>
+					<div class="line three"></div>
+					<div class="line four"></div>
+					<div class="line five"></div>
+					<div class="line six"></div>
+					<div class="line seven"></div>
+				</div>
+			</li>
+
+			<li>
+				<input type="radio" name="1" value="{{d.o2}}" />
+				<label>{{d.o2}}</label>
+				<div class="bullet">
+					<div class="line zero"></div>
+					<div class="line one"></div>
+					<div class="line two"></div>
+					<div class="line three"></div>
+					<div class="line four"></div>
+					<div class="line five"></div>
+					<div class="line six"></div>
+					<div class="line seven"></div>
+				</div>
+			</li>
+			<li>
+				<input type="radio" name="1" value="{{d.o3}}" />
+				<label>{{d.o3}}</label>
+				<div class="bullet">
+					<div class="line zero"></div>
+					<div class="line one"></div>
+					<div class="line two"></div>
+					<div class="line three"></div>
+					<div class="line four"></div>
+					<div class="line five"></div>
+					<div class="line six"></div>
+					<div class="line seven"></div>
+				</div>
+			</li>
+			<li>
+				<input type="radio" name="1" value="{{d.o4}}" />
+				<label>{{d.o4}}</label>
+				<div class="bullet">
+					<div class="line zero"></div>
+					<div class="line one"></div>
+					<div class="line two"></div>
+					<div class="line three"></div>
+					<div class="line four"></div>
+					<div class="line five"></div>
+					<div class="line six"></div>
+					<div class="line seven"></div>
+				</div>
+			</li>
+		</ul>
+		<center>
+			<input type="submit" class="bb" value="   Submit   " />
+		</center>
+	</form>
+</div>

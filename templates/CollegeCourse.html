@@ -1,0 +1,85 @@
+{% extends 'CompanyPage.html' %} {% block body %}
+
+<form action="#" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+
+	<table align="center">
+		<tr>
+			<td><label>Category</label></td>
+			<td>
+				<select name="cat" class="form-control">
+					<option>---Select Category---</option>
+					{% for d in category %}
+					<option value="{{d.id}}">{{d.name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td><label>Cut off</label></td>
+			<td>
+				<input
+					type="text"
+					name="room"
+					class="textbox"
+					placeholder="Out of 10"
+				/>
+			</td>
+		</tr>
+		<tr>
+			<td>Job Description</td>
+			<td>
+				<textarea
+					name="desc"
+					class="from-control"
+					id=""
+					cols="30"
+					rows="10"
+				></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="Add" name="Add" class="but" />
+			</td>
+		</tr>
+	</table>
+</form>
+<br /><br />
+{% if data %}
+<h1>Jobs</h1>
+<br />
+<table class="customers">
+	<tr>
+		<th>ID</th>
+		<th>Job</th>
+		<th>Description</th>
+		<th>Cutoff Required</th>
+		<th>Add Questions</th>
+	</tr>
+	{% for d in data %}
+	<tr>
+		<td>{{d.id}}</td>
+		<td>{{d.subcat.name}}</td>
+		<td>{{d.desc}}</td>
+		<td>{{d.cutoff}}</td>
+		<td>
+			<a
+				class="hover-fill"
+				href="/CompanyPrepareQuestion?id={{d.id}}"
+				data-txthover="Question"
+				>Question</a
+			>
+		</td>
+	</tr>
+
+	{% endfor %}
+</table>
+{% else %}
+<h1 class="text-center">No Jobs Added</h1>
+{% endif %} {% if msg %}
+
+<script>
+	alert('{{msg}}');
+</script>
+{% endif %} {% endblock %}

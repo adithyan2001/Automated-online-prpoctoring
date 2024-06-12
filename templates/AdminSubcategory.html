@@ -1,0 +1,58 @@
+{% extends 'AdminPage.html' %} {% block body %}
+
+<form action="#" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+
+	<table align="center">
+		<tr>
+			<td><label>Category</label></td>
+			<td>
+				<select name="cat" class="form-control">
+					<option>---Select Category---</option>
+					{% for d in category %}
+					<option value="{{d.id}}">{{d.name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td><label>Subcategory</label></td>
+			<td><input type="text" name="room" class="form-control" /></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="Add" name="Add" class="but" />
+			</td>
+		</tr>
+	</table>
+</form>
+{% if data %}
+
+<div class="w3-services-grids py-lg-4 text-center" style="padding: 20px">
+	<div class="fea-gd-vv row">
+		{% for d in data %}
+		<div
+			class="col-lg-4 col-md-7 bg-light"
+			style="margin-bottom: 30px; padding: 30px; border-radius: 20px"
+		>
+			<div class="feature-gd icon-yellow">
+				<div class="info">
+					<h3>Job ID: {{d.id}}</h3>
+					<h3>{{d.cat.name}}</h3>
+					<h3>{{d.name}}</h3>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endif %} {% if msg %}
+
+<script>
+	alert('{{msg}}');
+	if ('{{msg}}' != '') {
+		location.href = '/AdminSubcategory';
+	}
+</script>
+{% endif %} {% endblock %}

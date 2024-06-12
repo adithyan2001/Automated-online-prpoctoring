@@ -1,0 +1,45 @@
+{% extends 'AdminPage.html' %} {% block body %}
+<form action="#" method="post">
+	{% csrf_token %}
+	<h1>Student details</h1>
+	<br />
+	<form action="" method="post">
+		{% csrf_token %}
+		<div class="row">
+			<input
+				type="search"
+				name="search"
+				placeholder="Enter the search term here"
+				class="form-control"
+				style="width: 300px"
+				id=""
+			/>
+			<input type="submit" value="🔍" style="border: none; background: none" />
+		</div>
+	</form>
+	<br />
+	{% if data %}
+	<div class="w3-services-grids py-lg-4 text-center" style="padding: 20px">
+		<div class="fea-gd-vv row">
+			{% for d in data %}
+			<div
+				class="col-lg-4 col-md-7 bg-info"
+				style="margin-bottom: 30px; padding-bottom: 30px; border-radius: 20px"
+			>
+				<div class="feature-gd icon-yellow">
+					<div class="icon"></div>
+					<div class="info" style="margin-top: 50px">
+						<h3>{{d.name}}</h3>
+						<h3>{{d.location}}</h3>
+						<h5>{{d.email}}</h5>
+						<h5>{{d.phone}}</h5>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	{% else %}
+	<h2>No Data Found</h2>
+	{% endif %} {% endblock %}
+</form>

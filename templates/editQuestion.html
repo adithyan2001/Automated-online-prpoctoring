@@ -1,0 +1,102 @@
+{% extends 'AdminPage.html' %} {% block body %}
+<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	<table align="center">
+		<tr>
+			<td><label>Subcategory</label></td>
+			<td>
+				<input
+					type="text"
+					class="textbox"
+					readonly
+					value="{{data.subcat.name}}"
+					name=""
+					id=""
+				/>
+			</td>
+		</tr>
+		<tr>
+			<td><label>Question</label></td>
+			<td>
+				<input
+					type="text"
+					name="question"
+					class="textbox"
+                    value="{{data.question}}"
+					placeholder="Question"
+				/>
+			</td>
+		</tr>
+		<tr>
+			<td><label>Option 1</label></td>
+			<td>
+				<input
+					type="text"
+					name="opt1"
+					class="textbox"
+					value="{{data.o1}}"
+					placeholder="First Option"
+				/>
+			</td>
+		</tr>
+		<tr>
+			<td><label>Option 2</label></td>
+			<td>
+				<input
+					type="text"
+					name="opt2"
+					class="textbox"
+					value="{{data.o2}}"
+					placeholder="Second Question"
+				/>
+			</td>
+		</tr>
+		<tr>
+			<td><label>Option 3</label></td>
+			<td>
+				<input
+					type="text"
+					name="opt3"
+					class="textbox"
+					value="{{data.o3}}"
+					placeholder="Third Option"
+				/>
+			</td>
+		</tr>
+		<tr>
+			<td><label>Option 4</label></td>
+			<td>
+				<input
+					type="text"
+					name="opt4"
+					class="textbox"
+					value="{{data.o4}}"
+					placeholder="Fourth Option"
+				/>
+			</td>
+		</tr>
+		<tr>
+			<td><label>Correct Answer</label></td>
+			<td>
+				<input
+					type="text"
+					name="ans"
+					class="textbox"
+					value="{{data.ans}}"
+					placeholder="Correct Answer"
+				/>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="Update" name="Add" class="but" />
+			</td>
+		</tr>
+	</table>
+</form>
+{% if msg %}
+<script>
+	alert('{{msg}}');
+</script>
+{% endif %} {% endblock %}

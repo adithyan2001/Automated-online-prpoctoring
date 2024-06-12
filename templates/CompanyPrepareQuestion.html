@@ -1,0 +1,91 @@
+{% extends 'CompanyPage.html' %} {% block body %}
+<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	<table align="center">
+		<tr>
+			<td><label>Question</label></td>
+			<td>
+				<input
+					type="text"
+					name="question"
+					class="textbox"
+					placeholder="Question"
+				/>
+			</td>
+		</tr>
+		<tr>
+			<td><label>Option 1</label></td>
+			<td>
+				<input
+					type="text"
+					name="opt1"
+					class="textbox"
+					placeholder="First Option"
+				/>
+			</td>
+		</tr>
+		<tr>
+			<td><label>Option 2</label></td>
+			<td>
+				<input
+					type="text"
+					name="opt2"
+					class="textbox"
+					placeholder="Second Question"
+				/>
+			</td>
+		</tr>
+		<tr>
+			<td><label>Option 3</label></td>
+			<td>
+				<input
+					type="text"
+					name="opt3"
+					class="textbox"
+					placeholder="Third Option"
+				/>
+			</td>
+		</tr>
+		<tr>
+			<td><label>Option 4</label></td>
+			<td>
+				<input
+					type="text"
+					name="opt4"
+					class="textbox"
+					placeholder="Fourth Option"
+				/>
+			</td>
+		</tr>
+		<tr>
+			<td><label>Correct Answer</label></td>
+			<td>
+				<input
+					type="text"
+					name="ans"
+					class="textbox"
+					placeholder="Correct Answer"
+				/>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="Add Now" name="Add" class="but" />
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="2" align="center">
+				<a href="/viewAllQuestions?id={{jid}}" class="btn btn-primary col-12"
+					>Previously Added Questions</a
+				>
+			</td>
+		</tr>
+	</table>
+</form>
+{% if msg %}
+<script>
+	alert('{{msg}}');
+</script>
+{% endif %} {% endblock %}

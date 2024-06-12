@@ -1,0 +1,33 @@
+{% extends 'StudentPage.html' %} {% block body %}
+<form action="#" method="post">
+	{% csrf_token %}
+	<table class="customers">
+		<tr>
+			<th>Job</th>
+
+			<th>Mark</th>
+			<th></th>
+			<th></th>
+		</tr>
+		{% for d in data %}
+		<tr>
+			<td>{{d.job.subcat.name}} <br> {{d.job.desc}}</td>
+
+			<td>{{d.mark}}</td>
+			<td>
+				{{d.result}}
+			</td>
+			<td>
+				{{d.result2}}
+			</td>
+			<!-- <td><a href="/CompanyViewExamResult/?id={{d.15}}&st=Reject&fo={{d.22}}">Reject</a></td> -->
+		</tr>
+
+		{% endfor %}
+	</table>
+	{% if msg %}
+	<script>
+		alert('{{msg}}');
+	</script>
+	{% endif %} {% endblock %}
+</form>

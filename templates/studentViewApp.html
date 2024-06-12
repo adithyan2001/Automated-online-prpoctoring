@@ -1,0 +1,31 @@
+{% extends 'StudentPage.html' %} {% block body %}
+<form action="#" method="post">
+	{% csrf_token %}
+	<table class="customers">
+		<tr>
+			<th>Date</th>
+			<th>Company</th>
+			<th>Contact</th>
+			<th>Course</th>
+			<th>Status</th>
+		</tr>
+		{% for d in data %}
+		<tr>
+			<td>{{d.4}}</td>
+			<td>{{d.7}}</td>
+			<td>{{d.10}}</td>
+			<td>{{d.16}}</td>
+			<td>
+				{% if d.5 == 'Accept' %} Application Accepted By the Company. <br />
+				Contact the Company within 5 working days. {% else %} {{d.5}} {%endif%}
+			</td>
+		</tr>
+
+		{% endfor %}
+	</table>
+	{% if msg %}
+	<script>
+		alert('{{msg}}');
+	</script>
+	{% endif %} {% endblock %}
+</form>

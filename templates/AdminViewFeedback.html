@@ -1,0 +1,30 @@
+{% extends 'AdminPage.html' %} {% block body %}
+<form action="#" method="post">
+	{% csrf_token %} {% if data %}
+	<h1>Feedback</h1>
+	<br />
+
+	<div class="w3-services-grids py-lg-4 text-center" style="padding: 20px">
+		<div class="fea-gd-vv row">
+			{% for d in data %}
+			<div
+				class="col-lg-4 col-md-7 bg-light"
+				style="margin-bottom: 30px; padding: 30px; border-radius: 20px"
+			>
+				<div class="feature-gd icon-yellow">
+					<div class="info">
+						<h3><em>{{d.date}}</em></h3>
+						<h3>{{d.student.name}}</h3>
+						<h3>{{d.student.Phone}}</h3>
+						<p>Feedback:</p>
+						<p>{{d.feedback}}</p>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	{% else %}
+	<h1>No Feedback</h1>
+	{% endif %} {% endblock %}
+</form>

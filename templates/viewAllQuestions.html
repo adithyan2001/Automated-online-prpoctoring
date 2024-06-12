@@ -1,0 +1,56 @@
+{% extends 'CompanyPage.html' %} {% block body %}
+
+<div class="w3-services-grids py-lg-4 text-center" style="padding: 20px">
+	<form action="" method="post">
+		{% csrf_token %}
+		<div class="row">
+			<select class="form-control" name="search" style="width: 300px" id="">
+				<option value="" selected disabled>Select The Course</option>
+				{% for s in sc %}
+				<option value="{{s.id}}">{{s.name}}</option>
+				{% endfor %}
+			</select>
+			<input type="submit" value="Filter" class="btn btn-info" />
+		</div>
+	</form>
+	<div class="fea-gd-vv row">
+		<br />
+
+		{% for i in data %}
+		<div class="col-lg-4 col-md-7" style="margin-bottom: 30px">
+			<div class="feature-gd icon-yellow">
+				<div class="icon"></div>
+				<div class="info" style="margin-top: 50px">
+					<h3>{{forloop.counter}} ) {{i.question}}</h3>
+					<h4 class="text-left mt-2">Options</h4>
+					<p class="text-left">(A){{i.o1}}</p>
+					<p class="text-left">(B){{i.o2}}</p>
+					<p class="text-left">(C){{i.o3}}</p>
+					<p class="text-left">(D){{i.o4}}</p>
+					<h4 class="text-left mt-2">Answer</h4>
+					<p class="text-left">{{i.ans}}</p>
+					<ul>
+						<li class="cary-li-w3-agileits">
+							<div class="snipcart-details top_brand_home_details">
+								<form action="#" method="post">
+									<fieldset>
+										<a href="/editQuestion?id={{i.id}}&cid={{cid}}"
+											><input
+												type="button"
+												name="submit"
+												value="Edit"
+												class="btn btn-primary"
+										/></a>
+									</fieldset>
+								</form>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,376 @@
+<!-- Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+	<head>
+		<title>Skill Point</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta charset="utf-8" />
+		<meta
+			name="keywords"
+			content="Skill Point Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
+		/>
+		<script>
+			addEventListener(
+				'load',
+				function () {
+					setTimeout(hideURLbar, 0);
+				},
+				false
+			);
+
+			function hideURLbar() {
+				window.scrollTo(0, 1);
+			}
+		</script>
+
+		<!-- Bootstrap Core CSS -->
+		<link href="../static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+		<!-- animation -->
+		<link
+			href="../static/css/animate.css"
+			rel="stylesheet"
+			type="text/css"
+			media="all"
+		/>
+		<!-- Custom CSS -->
+		<link href="../static/css/style.css" rel="stylesheet" type="text/css" />
+		<!-- font-awesome icons -->
+		<link href="../static/css/fontawesome-all.min.css" rel="stylesheet" />
+		<!-- //Custom Theme files -->
+		<!-- online fonts -->
+		<link
+			href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+			rel="stylesheet"
+		/>
+		<link
+			href="//fonts.googleapis.com/css?family=Gentium+Book+Basic:400,400i,700i"
+			rel="stylesheet"
+		/>
+		<style>
+			input[type='radio'] {
+				width: 200px;
+				outline: none;
+				border: none;
+			}
+			input[type='radio']::selection {
+				outline: none;
+				border: none;
+			}
+		</style>
+
+		<!--// online fonts -->
+	</head>
+
+	<body onload="document.getElementById('startButton').click()">
+		
+		<div class="se-pre-con"></div>
+		<!-- header -->
+		<header></header>
+		<!-- //header -->
+		<!-- inner banner -->
+
+		<!-- //inner banner -->
+		<!-- contact -->
+		<section class="wthree-row pt-5">
+			<div class="container py-lg-5">
+				<div class="title-section pb-4">
+					<h3 class="main-title-agile">Aptitude Test</h3>
+					<div class="title-line"></div>
+				</div>
+			</div>
+			<div class="w3-contact pb-5">
+				<div class="container">
+					<div class="row contact-form">
+						<div class="col-lg-8 wthree-form-left">
+							<!-- contact form grid -->
+							<center>
+								<div style="padding: 100px">
+									<form method="post" enctype="multipart/form-data">
+										{% csrf_token %}
+										<input type="file" name="filename" id="filename" />
+										{% for d in qus %}
+
+										<div id="id{{forloop.counter}}">
+											<p>
+												{{forloop.counter}} ) <strong>{{d.question}}</strong>
+											</p>
+											<input
+												type="hidden"
+												name="qus{{forloop.counter}}"
+												value="{{d.id}}"
+											/>
+											<div class="row">
+												<input
+													type="radio"
+													name="ans{{d.id}}"
+													placeholder="Write your answer in sentence "
+													class="form-control"
+													value="{{d.o1}}"
+												/>
+												<p>{{d.o1}}</p>
+											</div>
+
+											<div class="row">
+												<input
+													type="radio"
+													name="ans{{d.id}}"
+													placeholder="Write your answer in sentence "
+													class="form-control"
+													value="{{d.o2}}"
+												/>
+												<p>{{d.o2}}</p>
+											</div>
+
+											<div class="row">
+												<input
+													type="radio"
+													name="ans{{d.id}}"
+													placeholder="Write your answer in sentence "
+													class="form-control"
+													value="{{d.o3}}"
+												/>{{d.o3}}
+											</div>
+											<div class="row">
+												<input
+													type="radio"
+													name="ans{{d.id}}"
+													placeholder="Write your answer in sentence "
+													class="form-control"
+													value="{{d.o4}}"
+												/>{{d.o4}}
+											</div>
+											<input
+												type="hidden"
+												name="cAns{{d.id}}"
+												value="{{d.ans}}"
+											/>
+											<!-- <input
+											type="button"
+											value="Next"
+											id="btn{{forloop.counter}}"
+											onclick="myFun(`{{forloop.counter}}`)"
+											/> -->
+											{% endfor %}
+										</div>
+										<input
+											type="submit"
+											id="subBtn"
+											value="submit"
+											class="btn btn-primary"
+										/>
+									</form>
+								</div>
+							</center>
+							<!--  //contact form grid ends here -->
+						</div>
+						<!-- contact details -->
+						<div class="offset-lg-1"></div>
+						<div class="col-lg-3"></div>
+					</div>
+				</div>
+				<!-- //contact details container -->
+			</div>
+		</section>
+		<!-- contact map grid -->
+
+		<!--//contact map grid ends here-->
+		<!-- footer top -->
+
+		<!-- //footer top -->
+		<!-- footer -->
+		<div class="left" style="">
+			<p id="log"></p>
+			<button id="startButton" class="button">Start Recording</button>
+			<h2>Preview</h2>
+			<video id="preview" width="160" height="120" autoplay muted></video>
+		</div>
+
+		<div class="right" style="">
+			<button id="stopButton" class="button">Stop Recording</button>
+			<h2>Recording</h2>
+			<video id="recording" width="160" height="120" controls></video>
+			<a id="downloadButton" class="button"> Download </a>
+			<!-- <form action="" method="get" enctype="multipart/form-data">
+				<input type="file" name="filename" id="filename" />
+				<input type="submit" value="Submit" />
+			</form> -->
+		</div>
+		{% if msg %}
+		<script>
+			alert('{{msg}}');
+		</script>
+		{% endif %}
+		<footer></footer>
+		<!-- //footer -->
+		<!-- js-->
+		<script src="../static/js/jquery-2.2.3.min.js"></script>
+		<!-- loading-gif Js -->
+		<script src="../static/js/modernizr.js"></script>
+		<script>
+			//paste this code under head tag or in a seperate js file.
+			// Wait for window load
+			$(window).load(function () {
+				// Animate loader off screen
+				$('.se-pre-con').fadeOut('slow');
+			});
+		</script>
+		<!--// loading-gif Js -->
+		<!-- Multiple select filter using jQuery -->
+		<script src="../static/js/custom-select.js"></script>
+		<!-- //Multiple select filter using jQuery -->
+		<!-- js-->
+		<!-- start-smooth-scrolling -->
+		<script src="../static/js/move-top.js"></script>
+		<script src="../static/js/easing.js"></script>
+		<script>
+			jQuery(document).ready(function ($) {
+				$('.scroll').click(function (event) {
+					event.preventDefault();
+
+					$('html,body').animate(
+						{
+							scrollTop: $(this.hash).offset().top,
+						},
+						1000
+					);
+				});
+			});
+		</script>
+		<!-- //end-smooth-scrolling -->
+		<!-- smooth-scrolling-of-move-up -->
+		<script>
+			$(document).ready(function () {
+				/*
+             var defaults = {
+                 containerID: 'toTop', // fading element id
+                 containerHoverID: 'toTopHover', // fading element hover id
+                 scrollSpeed: 1200,
+                 easingType: 'linear' 
+             };
+             */
+
+				$().UItoTop({
+					easingType: 'easeOutQuart',
+				});
+			});
+		</script>
+		<script src="../static/js/SmoothScroll.min.js"></script>
+		<!-- //smooth-scrolling-of-move-up -->
+		<!-- Bootstrap Core JavaScript -->
+		<script src="../static/js/bootstrap.js"></script>
+		<!-- //Bootstrap Core JavaScript -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+		<script>
+			let preview = document.getElementById('preview');
+			let recording = document.getElementById('recording');
+			let startButton = document.getElementById('startButton');
+			let stopButton = document.getElementById('stopButton');
+			let downloadButton = document.getElementById('downloadButton');
+			let logElement = document.getElementById('log');
+
+			let recordingTimeMS = 10000;
+
+			function log(msg) {
+				logElement.innerHTML += `${msg}\n`;
+			}
+			function wait(delayInMS) {
+				return new Promise(resolve => setTimeout(resolve, delayInMS));
+			}
+			function startRecording(stream, lengthInMS) {
+				let recorder = new MediaRecorder(stream);
+				let data = [];
+
+				recorder.ondataavailable = event => data.push(event.data);
+				recorder.start();
+				log(`${recorder.state} for ${lengthInMS / 1000} seconds…`);
+
+				let stopped = new Promise((resolve, reject) => {
+					recorder.onstop = resolve;
+					recorder.onerror = event => reject(event.name);
+				});
+
+				let recorded = wait(lengthInMS).then(() => {
+					if (recorder.state === 'recording') {
+						recorder.stop();
+					}
+				});
+
+				return Promise.all([stopped, recorded]).then(() => data);
+			}
+
+			function stop(stream) {
+				//	stream.getTracks().forEach(track => track.stop());
+				let recorder = new MediaRecorder(stream);
+				if (recorder.state === 'recording') {
+					recorder.stop();
+					return Promise.all([stopped, recorded]).then(() => data);
+				}
+			}
+
+			startButton.addEventListener(
+				'click',
+				() => {
+					navigator.mediaDevices
+						.getUserMedia({
+							video: true,
+							audio: true,
+						})
+						.then(stream => {
+							preview.srcObject = stream;
+							downloadButton.href = stream;
+							preview.captureStream =
+								preview.captureStream || preview.mozCaptureStream;
+							return new Promise(resolve => (preview.onplaying = resolve));
+						})
+						.then(() =>
+							startRecording(preview.captureStream(), recordingTimeMS)
+						)
+						.then(recordedChunks => {
+							let recordedBlob = new Blob(recordedChunks, {
+								type: 'video/webm',
+							});
+							recording.src = URL.createObjectURL(recordedBlob);
+							let file = new File(
+								[recordedBlob],
+								'Rec.webm',
+								{ type: 'video/webm', lastModified: new Date().getTime() },
+								'utf-8'
+							);
+							let container = new DataTransfer();
+							container.items.add(file);
+							document.getElementById('filename').files = container.files;
+							downloadButton.href = recording.src;
+							console.log(downloadButton.href);
+							downloadButton.download = 'RecordedVideo.webm';
+
+							log(
+								`Successfully recorded ${recordedBlob.size} bytes of ${recordedBlob.type} media.`
+							);
+						})
+						.catch(error => {
+							if (error.name === 'NotFoundError') {
+								log("Camera or microphone not found. Can't record.");
+							} else {
+								log(error);
+							}
+						});
+				},
+				false
+			);
+
+			stopButton.addEventListener(
+				'click',
+				() => {
+					stop(preview.srcObject);
+				},
+				false
+			);
+		</script>
+	</body>
+</html>

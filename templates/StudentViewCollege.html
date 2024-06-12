@@ -1,0 +1,434 @@
+<!-- Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+	<head>
+		<title>Skill Point</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta charset="utf-8" />
+		<meta
+			name="keywords"
+			content="Skill Point Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
+		/>
+		<script>
+			addEventListener(
+				'load',
+				function () {
+					setTimeout(hideURLbar, 0);
+				},
+				false
+			);
+
+			function hideURLbar() {
+				window.scrollTo(0, 1);
+			}
+		</script>
+
+		<!-- Bootstrap Core CSS -->
+		<link href="../static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+		<!-- animation -->
+		<link
+			href="../static/css/animate.css"
+			rel="stylesheet"
+			type="text/css"
+			media="all"
+		/>
+		<!-- Custom CSS -->
+		<link href="../static/css/style.css" rel="stylesheet" type="text/css" />
+		<!-- courses -->
+		<link
+			href="../static/css/courses.css"
+			rel="stylesheet"
+			type="text/css"
+			media="all"
+		/>
+		<!-- font-awesome icons -->
+		<link href="../static/css/fontawesome-all.min.css" rel="stylesheet" />
+		<!-- //Custom Theme files -->
+		<!-- online fonts -->
+		<link
+			href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+			rel="stylesheet"
+		/>
+		<link
+			href="//fonts.googleapis.com/css?family=Gentium+Book+Basic:400,400i,700i"
+			rel="stylesheet"
+		/>
+	</head>
+
+	<body>
+		<div class="se-pre-con"></div>
+		<!-- header -->
+		<header>
+			<div class="header-top">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="d-flex header-agile">
+								<li>
+									<span class="fas fa-envelope-open"></span>
+									<a href="mailto:hr@skillpoint.com" class="text-white"
+										>hr@skillpoint.com</a
+									>
+								</li>
+								<li>
+									<span class="fas fa-phone-volume"></span>
+									<p class="d-inline text-white">+456 123 7890</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header-bottom">
+				<div class="container">
+					<nav class="navbar navbar-expand-lg navbar-light p-0">
+						<h1>
+							<a class="navbar-brand" href="index.html">
+								<span>S</span>kill
+								<i class="w3-spacing"></i>
+								<span>P</span>oint
+							</a>
+						</h1>
+						<button
+							class="navbar-toggler ml-lg-auto ml-sm-5"
+							type="button"
+							data-toggle="collapse"
+							data-target="#navbarSupportedContent"
+							aria-controls="navbarSupportedContent"
+							aria-expanded="false"
+							aria-label="Toggle navigation"
+						>
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav text-center ml-auto">
+								<li class="nav-item active mr-lg-3 mt-lg-0 mt-4">
+									<a class="hover-fill" href="/StudentHome" data-txthover="Home"
+										>Home</a
+									>
+								</li>
+								<li class="nav-item mr-lg-3 mt-lg-0 mt-4">
+									<a
+										class="hover-fill"
+										href="/StudentFindJob"
+										data-txthover="Search Jobs"
+										>Search Jobs</a
+									>
+								</li>
+								<li class="nav-item mr-lg-3 mt-lg-0 mt-4">
+									<a class="hover-fill" href="/StudentTest" data-txthover="Test"
+										>Test</a
+									>
+								</li>
+
+								<li class="nav-item mr-lg-3 mt-lg-0 mt-4">
+									<a
+										class="hover-fill"
+										href="/CustomerAddFeedback"
+										data-txthover="Feedback"
+										>Feedback</a
+									>
+								</li>
+								<li class="nav-item">
+									<a class="hover-fill" href="/" data-txthover="Logout"
+										>Logout</a
+									>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<!-- //header -->
+
+		<!-- banner -->
+		<div class="inner-banner-w3ls text-right d-flex align-items-center">
+			<div class="container"></div>
+		</div>
+		<!-- //banner -->
+		<!-- courses -->
+		<section class="courses-sec py-5">
+			<div class="container py-lg-5">
+				<div class="title-section pb-4">
+					<h3 class="main-title-agile">Companies</h3>
+					<div class="title-line"></div>
+				</div>
+
+				<div id="products" class="row view-group">
+					<div class="item col-lg-4">
+						{% for d in data %}
+						<div class="thumbnail card">
+							<div class="caption card-body">
+								<div class="text-cen" style="width: 100%">
+									<img
+										src="../static/media/{{d.company.image}}"
+										width="100"
+										style="margin: auto"
+										alt=""
+									/>
+								</div>
+								<h4 class="group card-title inner list-group-item-heading">
+									{{d.name}}
+								</h4>
+
+								<div class="row">
+									<p>Location: {{d.company.location}}</p>
+								</div>
+								<div class="row">
+									<p>Email: {{d.company.email}}</p>
+								</div>
+								<div class="row">
+									<p>Contact: {{d.company.phone}}</p>
+								</div>
+								<div class="row">
+									<p>
+										Website:
+										<a href="http://{{d.company.website}}" target="_blank"
+											>{{d.company.website}}</a
+										>
+									</p>
+								</div>
+								<div class="row">
+									<p>About:{{d.company.about}}</p>
+								</div>
+								<div class="row">
+									<p>Job Description:{{d.desc}}</p>
+								</div>
+								<div class="col-12">
+									<a
+										class="btn btn-course"
+										href="/StudentAttentAptitudeTest/?id={{d.id}}"
+										>Attend Exam</a
+									>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- //courses -->
+		<!-- footer top -->
+		<div class="footer-top py-5">
+			<div class="container">
+				<div class="row footer-cform pt-lg-5">
+					<div class="col-lg-6">
+						<h5 class="footer-top-title">site navigation</h5>
+						<div class="footer-top-agileits">
+							<ul class="list-agileits d-flex">
+								<li>
+									<a href="index.html" class="nav-link py-0 pl-0"> Home </a>
+								</li>
+								<li>
+									<a href="about.html" class="nav-link py-0"> About Us </a>
+								</li>
+								<li>
+									<a href="services.html" class="nav-link py-0"> Services </a>
+								</li>
+								<li>
+									<a href="portfolio.html" class="nav-link py-0"> portfolio </a>
+								</li>
+							</ul>
+							<ul class="list-agileits d-flex">
+								<li>
+									<a href="courses.html" class="nav-link py-0 pl-0">
+										courses
+									</a>
+								</li>
+								<li>
+									<a href="index.html" class="nav-link py-0">
+										privacy policy
+									</a>
+								</li>
+								<li>
+									<a href="contact.html" class="nav-link py-0"> Contact Us </a>
+								</li>
+							</ul>
+						</div>
+						<div class="footer-cont-btm">
+							<h5 class="footer-top-title">contact information</h5>
+							<address class="my-4">
+								<p>+4667 Woodland Terrace Folsom, California 916-983-6577.</p>
+							</address>
+							<ul class="d-flex header-agile pt-0">
+								<li>
+									<span class="fas fa-envelope-open"></span>
+									<a href="mailto:example@email.com" class="text-secondary"
+										>info@example.com</a
+									>
+								</li>
+								<li>
+									<span class="fas fa-phone-volume"></span>
+									<p class="d-inline text-secondary">+456 123 7890</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-6 wthree-form-left my-lg-0 mt-4">
+						<h5 class="footer-top-title">send us a message</h5>
+						<div class="footer-top-form">
+							<form action="#" method="get" class="footer-top-wthree">
+								<div class="form-group d-flex">
+									<label> Name </label>
+									<input
+										class="form-control"
+										type="text"
+										placeholder="Johnson"
+										name="email"
+										required=""
+									/>
+								</div>
+								<div class="form-group d-flex">
+									<label> Email </label>
+									<input
+										class="form-control"
+										type="email"
+										placeholder="example@email.com"
+										name="email"
+										required=""
+									/>
+								</div>
+								<div class="form-group d-flex">
+									<label> Phone </label>
+									<input
+										class="form-control"
+										type="text"
+										placeholder="XXXX XXXX XX"
+										name="email"
+										required=""
+									/>
+								</div>
+								<div class="form-group d-flex">
+									<label> Message </label>
+									<textarea
+										class="form-control"
+										rows="5"
+										id="contactcomment"
+										placeholder="Your message"
+										required
+									></textarea>
+								</div>
+								<div class="d-flex justify-content-end">
+									<button type="submit" class="btn btn-agile btn-block w-25">
+										Send
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //footer top -->
+		<!-- footer -->
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6">
+						<div
+							class="social-icons d-flex my-auto justify-content-lg-start justify-content-center"
+						>
+							<h2 class="mr-4">stay connected :</h2>
+							<ul class="social-iconsv2 agileinfo">
+								<li>
+									<a href="#">
+										<i class="fab fa-facebook-f"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fab fa-twitter"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fab fa-google-plus-g"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fab fa-linkedin-in"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-6 my-lg-auto mt-3">
+						<div class="cpy-right text-lg-right text-center">
+							<p class="text-secondary">
+								© 2018 Skill Point. All rights reserved | Design by
+								<a href="http://w3layouts.com"> W3layouts.</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- //footer -->
+		<!-- js-->
+		<script src="../static/js/jquery-2.2.3.min.js"></script>
+		<!-- loading-gif Js -->
+		<script src="../static/js/modernizr.js"></script>
+		<script>
+			//paste this code under head tag or in a seperate js file.
+			// Wait for window load
+			$(window).load(function () {
+				// Animate loader off screen
+				$('.se-pre-con').fadeOut('slow');
+			});
+		</script>
+		<!--// loading-gif Js -->
+		<!-- Multiple select filter using jQuery -->
+		<script src="../static/js/custom-select.js"></script>
+		<!-- //Multiple select filter using jQuery -->
+		<!-- js-->
+		<!-- start-smooth-scrolling -->
+		<script src="../static/js/move-top.js"></script>
+		<script src="../static/js/easing.js"></script>
+		<script>
+			jQuery(document).ready(function ($) {
+				$('.scroll').click(function (event) {
+					event.preventDefault();
+
+					$('html,body').animate(
+						{
+							scrollTop: $(this.hash).offset().top,
+						},
+						1000
+					);
+				});
+			});
+		</script>
+		<!-- //end-smooth-scrolling -->
+		<!-- smooth-scrolling-of-move-up -->
+		<script>
+			$(document).ready(function () {
+				/*
+             var defaults = {
+            	 containerID: 'toTop', // fading element id
+            	 containerHoverID: 'toTopHover', // fading element hover id
+            	 scrollSpeed: 1200,
+            	 easingType: 'linear' 
+             };
+             */
+
+				$().UItoTop({
+					easingType: 'easeOutQuart',
+				});
+			});
+		</script>
+		<script src="../static/js/SmoothScroll.min.js"></script>
+		<!-- //smooth-scrolling-of-move-up -->
+		<script src="../static/js/gridview.js"></script>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="../static/js/bootstrap.js"></script>
+		<!-- //Bootstrap Core JavaScript -->
+	</body>
+</html>
